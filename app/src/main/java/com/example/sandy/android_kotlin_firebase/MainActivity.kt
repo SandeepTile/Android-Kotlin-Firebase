@@ -5,9 +5,6 @@ import android.os.Bundle
 import com.google.firebase.auth.FirebaseAuth
 import android.widget.Toast
 import kotlinx.android.synthetic.main.activity_main.*
-import com.google.firebase.auth.FirebaseUser
-
-
 
 
 class MainActivity : AppCompatActivity() {
@@ -24,8 +21,8 @@ class MainActivity : AppCompatActivity() {
 
         loginbtn.setOnClickListener {
 
-            val emailip = email.text.toString()
-            val passwordip = password.text.toString()
+            val emailip = regemail.text.toString()
+            val passwordip = regpassword.text.toString()
 
 
 
