@@ -37,6 +37,13 @@ class RegisterActivity : AppCompatActivity() {
             register()
         }
 
+       /* sign_in_button.setOnClickListener {
+
+            googlesignin()
+        }*/
+
+    }
+
     }
 
     private fun register() {
