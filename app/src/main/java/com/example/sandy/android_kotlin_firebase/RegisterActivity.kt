@@ -55,10 +55,11 @@ class RegisterActivity : AppCompatActivity() {
         regbtn.setOnClickListener {
 
             if (regemail.toString() == "" &&regpassword.toString() == ""){
-                register()
+                Toast.makeText(this@RegisterActivity,"plz enter email and password",Toast.LENGTH_LONG).show()
+
             }else{
 
-                Toast.makeText(this@RegisterActivity,"plz enter email and password",Toast.LENGTH_LONG).show()
+                register()
             }
 
         }
@@ -136,7 +137,7 @@ class RegisterActivity : AppCompatActivity() {
 
                         database.setValue(usermap).addOnCompleteListener {
 
-                            var intent=Intent(this@RegisterActivity,MainActivity::class.java)
+                            var intent=Intent(this@RegisterActivity,QRCodeActivity::class.java)
                             startActivity(intent)
                         }
 
