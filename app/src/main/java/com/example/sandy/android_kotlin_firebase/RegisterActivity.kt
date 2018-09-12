@@ -54,7 +54,13 @@ class RegisterActivity : AppCompatActivity() {
 
         regbtn.setOnClickListener {
 
-            register()
+            if (regemail.toString() == "" &&regpassword.toString() == ""){
+                register()
+            }else{
+
+                Toast.makeText(this@RegisterActivity,"plz enter email and password",Toast.LENGTH_LONG).show()
+            }
+
         }
 
 
@@ -91,6 +97,7 @@ class RegisterActivity : AppCompatActivity() {
         try {
 
             val account:GoogleSignInAccount=completedTask.getResult(ApiException::class.java)
+            updateUI(account)
 
 
         }catch (e:ApiException){
@@ -98,6 +105,12 @@ class RegisterActivity : AppCompatActivity() {
             Toast.makeText(this@RegisterActivity,e.toString(),Toast.LENGTH_LONG).show()
         }
 
+    }
+
+    private fun updateUI(account: GoogleSignInAccount) {
+
+
+        textView.text=account.toString()
     }
 
     private fun register() {
@@ -140,7 +153,11 @@ class RegisterActivity : AppCompatActivity() {
                     // ...
                 }
     }
+
+
 }
+
+
 
 
 
