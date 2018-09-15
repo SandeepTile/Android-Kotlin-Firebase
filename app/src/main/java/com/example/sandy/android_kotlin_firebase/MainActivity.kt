@@ -1,5 +1,6 @@
 package com.example.sandy.android_kotlin_firebase
 
+import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import com.google.firebase.auth.FirebaseAuth
@@ -17,7 +18,11 @@ class MainActivity : AppCompatActivity() {
 
         mAuth = FirebaseAuth.getInstance()
 
+        qrcode.setOnClickListener {
 
+            var intent=Intent(this@MainActivity,QRCodeActivity::class.java)
+            startActivity(intent)
+        }
 
         loginbtn.setOnClickListener {
 
