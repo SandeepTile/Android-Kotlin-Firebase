@@ -36,6 +36,7 @@ class RegisterActivity : AppCompatActivity() {
     lateinit var mGoogleSignInClient:GoogleSignInClient
     lateinit var gso:GoogleSignInOptions
     val RC_SIGN_IN:Int=1
+    private val GALLERY_PICK = 1
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -50,6 +51,17 @@ class RegisterActivity : AppCompatActivity() {
                 .build()
 
         mGoogleSignInClient=GoogleSignIn.getClient(this,gso)
+
+        pic.setOnClickListener {
+
+            val galleryIntent = Intent()
+            galleryIntent.type = "image/*"
+            galleryIntent.action = Intent.ACTION_GET_CONTENT
+
+            startActivityForResult(Intent.createChooser(galleryIntent, "SELECT IMAGE"), GALLERY_PICK)
+        }
+
+
 
 
         regbtn.setOnClickListener {
@@ -71,8 +83,6 @@ class RegisterActivity : AppCompatActivity() {
         }
 
     }
-
-
 
 
 
@@ -111,7 +121,7 @@ class RegisterActivity : AppCompatActivity() {
     private fun updateUI(account: GoogleSignInAccount) {
 
 
-        textView.text=account.toString()
+
     }
 
     private fun register() {
